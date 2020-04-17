@@ -19,7 +19,7 @@ class CommandWrapper extends Command
 
         parent::__construct($app);
 
-        $this->setDescription($command->getDescription());
+        $this->setDescription($description ?: $command->getDescription());
         $this->setDefinition($command->getDefinition());
     }
 
