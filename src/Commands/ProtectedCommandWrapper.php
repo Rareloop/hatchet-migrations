@@ -34,7 +34,7 @@ class ProtectedCommandWrapper extends CommandWrapper
             }
         }
 
-        $this->command->execute($input, $output);
+        parent::execute($input, $output);
     }
 
     protected function isAProductionEnvironment()
