@@ -53,7 +53,10 @@ class CommandWrapper extends Command
         $combinedDefinition->addOptions($this->getDefinition()->getOptions());
 
         $argv = explode(' ', $input->__toString());
-        array_push($argv, '--environment=wp');
+
+        if ($combinedDefinition->hasOption('environment')) {
+            array_push($argv, '--environment=wp');
+        }
 
         $newInput = new ArgvInput($argv, $combinedDefinition);
 
