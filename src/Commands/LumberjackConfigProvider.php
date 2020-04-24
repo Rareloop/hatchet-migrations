@@ -3,6 +3,7 @@
 namespace Rareloop\Hatchet\Migrations\Commands;
 
 use Phinx\Config\Config as PhinxConfig;
+use Rareloop\Hatchet\Migrations\BaseMigration;
 use Rareloop\Lumberjack\Facades\Config;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -55,6 +56,9 @@ trait LumberjackConfigProvider
                 ],
             ],
             'version_order' => 'creation',
+            'templates' => [
+                'file' => Config::get('migrations.template_path', __DIR__ . '/../Migration.template.php'),
+            ],
         ];
 
         $this->setConfig(new PhinxConfig($config));
